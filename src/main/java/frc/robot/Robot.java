@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.OI;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,9 +24,11 @@ import frc.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
+  public static OI m_oi;
 
   @Override
   public void robotInit() {
+    m_oi = new OI();
     // Define Joysticks
     RobotMap.driverStick = new Joystick(RobotMap.driverStickPort);  // Define driver stick
 

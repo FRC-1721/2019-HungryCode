@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Add your docs here.
@@ -27,8 +28,10 @@ public class Pneumatics extends Subsystem {
   public static void toggle(Joystick controller, DoubleSolenoid piston){
     if(piston.get() == DoubleSolenoid.Value.kForward){  // If already forward
       piston.set(DoubleSolenoid.Value.kReverse);  // Reverse
+      SmartDashboard.putBoolean("Solenoid Movement", false);
     }else{
       piston.set(DoubleSolenoid.Value.kForward);  // If not already forward, set to forward
+      SmartDashboard.putBoolean("Solenoid Movement", true);
     }
   }
 }

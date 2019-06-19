@@ -29,7 +29,7 @@ public class RobotMap {
   public static int driverStickPort = 0;
 
   // Buttons on stick
-  public static int candyLiftButton = 1;
+  public static int candyLiftButton = 8;
 
   // Drive motor Controlers
   public static TalonSRX starboardMotor;
