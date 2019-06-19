@@ -12,6 +12,6 @@ package frc.robot;
  */
 public class Constants {
     // Dampener
-    public static double turnDampener = 1.0;
+    public static double turnDampener = 0.5;
     public static double strafeDampener = 1.0;
 }

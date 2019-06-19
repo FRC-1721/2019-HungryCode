@@ -7,9 +7,12 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 
 /**
@@ -23,7 +26,16 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-    // Runs when the robot first starts up
+    // Define Joysticks
+    RobotMap.driverStick = new Joystick(RobotMap.driverStickPort);  // Define driver stick
+
+    // Define motors
+    RobotMap.starboardMotor = new TalonSRX(RobotMap.starboardAddress);
+    RobotMap.portMotor = new TalonSRX(RobotMap.portAddress);
+    RobotMap.strafeMotor = new TalonSRX(RobotMap.strafeAddress);
+
+    // Define Pneumatics
+    RobotMap.candyLift = new DoubleSolenoid(RobotMap.candyLiftUpPort, RobotMap.candyLiftDownPort);
   }
 
   @Override

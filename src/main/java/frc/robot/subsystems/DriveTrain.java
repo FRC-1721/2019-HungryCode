@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -26,8 +27,8 @@ public class DriveTrain extends Subsystem {
     double yaw = Constants.turnDampener * DriverJoystick.getRawAxis(2); // Populate with axis two
     double roll = Constants.strafeDampener * DriverJoystick.getRawAxis(3);  // Populate with axis three
 
-    starboard.set(ControlMode.PercentOutput, (-1 * thro) - yaw);  // From the inverse of thro, subtract yaw
-    port.set(ControlMode.PercentOutput, thro - yaw);  // subtract yaw from thro
+    starboard.set(ControlMode.PercentOutput, (-1 * thro) - (yaw * RobotMap.invertSteering));  // From the inverse of thro, subtract yaw
+    port.set(ControlMode.PercentOutput, thro - (yaw * RobotMap.invertSteering));  // subtract yaw from thro
     strafe.set(ControlMode.PercentOutput, roll);  // Set the strafe motor to the roll percentage
 
     SmartDashboard.putNumber("Strafe", roll);
