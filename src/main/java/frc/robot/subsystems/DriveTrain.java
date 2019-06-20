@@ -21,11 +21,11 @@ import frc.robot.RobotMap;
  */
 public class DriveTrain extends Subsystem {
 
-  public static void flyByWire(TalonSRX starboard, TalonSRX port, TalonSRX strafe, Joystick DriverJoystick)
+  public static void flyByWire(TalonSRX starboard, TalonSRX port, TalonSRX strafe, Joystick DriverJoystick, double turnDampener, double strafeDampener, double throDampener)
   {
-    double thro = DriverJoystick.getRawAxis(1); // Populate thro with axis one
-    double yaw = Constants.turnDampener * DriverJoystick.getRawAxis(2); // Populate with axis two
-    double roll = Constants.strafeDampener * DriverJoystick.getRawAxis(0);  // Populate with axis three
+    double thro = throDampener * DriverJoystick.getRawAxis(1); // Populate thro with axis one
+    double yaw = turnDampener * DriverJoystick.getRawAxis(2); // Populate with axis two
+    double roll = strafeDampener * DriverJoystick.getRawAxis(0);  // Populate with axis three
 
     starboard.set(ControlMode.PercentOutput, (-1 * thro) - (yaw * RobotMap.invertSteering));  // From the inverse of thro, subtract yaw
     port.set(ControlMode.PercentOutput, thro - (yaw * RobotMap.invertSteering));  // subtract yaw from thro

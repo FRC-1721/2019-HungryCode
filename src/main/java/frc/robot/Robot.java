@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     // Called all the time no matter the mode
-    DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick);
+    DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.turnDampener, Constants.strafeDampener, 1.0);
   }
 
   @Override
@@ -99,5 +99,6 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
     // Called periodically during test mode
+    DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.debugTurnDampener, Constants.debugStrafeDampener, Constants.debugThroDampener);
   }
 }
