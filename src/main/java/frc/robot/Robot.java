@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.OI;
 
@@ -100,5 +101,9 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
     // Called periodically during test mode
     DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.debugTurnDampener, Constants.debugStrafeDampener, Constants.debugThroDampener);
+    SmartDashboard.putNumber("StrafeDampener", Constants.debugStrafeDampener);
+    SmartDashboard.putNumber("TurnDampener", Constants.debugTurnDampener);
+    SmartDashboard.putNumber("ThroDampener", Constants.debugThroDampener);
+    SmartDashboard.putNumber("Inverted Steering", RobotMap.invertSteering);
   }
 }
