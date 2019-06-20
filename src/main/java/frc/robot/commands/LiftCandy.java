@@ -25,7 +25,7 @@ public class LiftCandy extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Pneumatics.toggle(RobotMap.driverStick, RobotMap.candyLift);
+    Pneumatics.toggle(RobotMap.driverStick, RobotMap.candyLift, true);
   }
 
   // Make this return true when this Command no longer needs to run execute()

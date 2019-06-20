@@ -20,7 +20,7 @@ import frc.robot.RobotMap;
  */
 public class DriveTrain extends Subsystem {
 
-  public static void flyByWire(TalonSRX starboard, TalonSRX port, TalonSRX strafe, Joystick DriverJoystick, double turnDampener, double strafeDampener, double throDampener)
+  public static void flyByWire(TalonSRX starboard, TalonSRX port, TalonSRX strafe, Joystick DriverJoystick, double turnDampener, double strafeDampener, double throDampener, boolean verbose)
   {
     double thro = throDampener * DriverJoystick.getRawAxis(1); // Populate thro with axis one
     double yaw = turnDampener * DriverJoystick.getRawAxis(2); // Populate with axis two
@@ -30,9 +30,11 @@ public class DriveTrain extends Subsystem {
     port.set(ControlMode.PercentOutput, thro - (yaw * RobotMap.invertSteering));  // subtract yaw from thro
     strafe.set(ControlMode.PercentOutput, roll);  // Set the strafe motor to the roll percentage
 
-    SmartDashboard.putNumber("Strafe", roll);
-    SmartDashboard.putNumber("Thro", thro);
-    SmartDashboard.putNumber("Yaw", yaw);
+    if(verbose == true){
+      SmartDashboard.putNumber("Strafe", roll);
+      SmartDashboard.putNumber("Thro", thro);
+      SmartDashboard.putNumber("Yaw", yaw);
+    }
   }
   @Override
   public void initDefaultCommand() {

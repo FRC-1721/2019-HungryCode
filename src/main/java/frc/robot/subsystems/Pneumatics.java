@@ -25,13 +25,19 @@ public class Pneumatics extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public static void toggle(Joystick controller, DoubleSolenoid piston){
+  public static void toggle(Joystick controller, DoubleSolenoid piston, boolean verbose){
+    boolean movement;
     if(piston.get() == DoubleSolenoid.Value.kForward){  // If already forward
       piston.set(DoubleSolenoid.Value.kReverse);  // Reverse
-      SmartDashboard.putBoolean("Solenoid Movement", false);
+      movement = false;
     }else{
       piston.set(DoubleSolenoid.Value.kForward);  // If not already forward, set to forward
-      SmartDashboard.putBoolean("Solenoid Movement", true);
+      movement = true;
+    }
+
+    if(verbose == true)
+    {
+      SmartDashboard.putBoolean("Solenoid Movement", movement);
     }
   }
 }
