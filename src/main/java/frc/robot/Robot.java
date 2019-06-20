@@ -9,6 +9,7 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -30,6 +31,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     SmartDashboard.putString("Good ", "Morning! ");
+    CameraServer.getInstance().startAutomaticCapture();
+
     m_oi = new OI();
     // Define Joysticks
     RobotMap.driverStick = new Joystick(RobotMap.driverStickPort);  // Define driver stick
