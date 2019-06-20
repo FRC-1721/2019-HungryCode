@@ -14,6 +14,7 @@ public class Constants {
     // Dampener
     public static double turnDampener = 0.38;
     public static double strafeDampener = 1.0;
+    public static double throDampener = 1.0; 
 
     // Debug settings
     public static double debugTurnDampener = 0.3;

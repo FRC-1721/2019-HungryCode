@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
+    SmartDashboard.putString("Good ", "Morning! ");
     m_oi = new OI();
     // Define Joysticks
     RobotMap.driverStick = new Joystick(RobotMap.driverStickPort);  // Define driver stick
@@ -45,7 +46,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     // Called all the time no matter the mode
-    DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.turnDampener, Constants.strafeDampener, 1.0, true);
+    DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.turnDampener, Constants.strafeDampener, Constants.throDampener, true);
   }
 
   @Override
