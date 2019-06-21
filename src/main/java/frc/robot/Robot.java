@@ -49,7 +49,13 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     // Called all the time no matter the mode
-    DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.turnDampener, Constants.strafeDampener, Constants.throDampener, true);
+    if(Constants.safeMode != true) {
+      DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.turnDampener, Constants.strafeDampener, Constants.throDampener, true);
+    }
+    else
+    {
+      DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.debugTurnDampener, Constants.debugStrafeDampener, Constants.debugThroDampener, true);
+    }
   }
 
   @Override
@@ -93,6 +99,7 @@ public class Robot extends TimedRobot {
     //if (m_autonomousCommand != null) {
     //  m_autonomousCommand.cancel();
     //}
+    Constants.safeMode = false;
   }
 
   @Override
@@ -104,7 +111,7 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
     // Called periodically during test mode
-    DriveTrain.flyByWire(RobotMap.starboardMotor, RobotMap.portMotor, RobotMap.strafeMotor, RobotMap.driverStick, Constants.debugTurnDampener, Constants.debugStrafeDampener, Constants.debugThroDampener, true);
+    Constants.safeMode = true;
     SmartDashboard.putNumber("StrafeDampener", Constants.debugStrafeDampener);
     SmartDashboard.putNumber("TurnDampener", Constants.debugTurnDampener);
     SmartDashboard.putNumber("ThroDampener", Constants.debugThroDampener);

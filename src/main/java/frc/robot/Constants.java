@@ -17,7 +17,10 @@ public class Constants {
     public static double throDampener = 1.0; 
 
     // Debug settings
-    public static double debugTurnDampener = 0.3;
-    public static double debugThroDampener = 0.4;
-    public static double debugStrafeDampener = 0.4;
+    public static double debugTurnDampener = 0.25;
+    public static double debugThroDampener = 0.25;
+    public static double debugStrafeDampener = 0.25;
+
+    // Misc
+    public static boolean safeMode = false;
 }
