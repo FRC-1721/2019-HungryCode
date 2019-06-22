@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.LiftCandy;
+import frc.robot.commands.*;
 
 /**
  * Add your docs here.
@@ -18,7 +18,9 @@ import frc.robot.commands.LiftCandy;
 public class OI {
     Joystick controller = new Joystick(RobotMap.driverStickPort);
     Button candyLiftButton = new JoystickButton(controller, RobotMap.candyLiftButton);
+    Button hornButton = new JoystickButton(controller, RobotMap.hornButton);
     public OI(){
         candyLiftButton.whenPressed(new LiftCandy());
+        hornButton.whenPressed(new HonkHorn());
     }
 }

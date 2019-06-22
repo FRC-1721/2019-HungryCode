@@ -21,6 +21,6 @@ public class Constants {
     public static double debugThroDampener = 0.25;
     public static double debugStrafeDampener = 0.25;
 
-    // Misc
+    // Volitile variables
     public static boolean safeMode = false;
 }

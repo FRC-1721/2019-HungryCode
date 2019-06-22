@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Solenoid;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -29,6 +30,7 @@ public class RobotMap {
   public static int driverStickPort = 0;
 
   // Buttons on stick
+  public static int hornButton = 7;
   public static int candyLiftButton = 8;
 
   // Drive motor Controlers
@@ -38,10 +40,13 @@ public class RobotMap {
 
   // Pneumatics
   public static DoubleSolenoid candyLift;
+  public static DoubleSolenoid hornSolenoid;
 
   // PCM 
   public static int candyLiftUpPort = 7;
   public static int candyLiftDownPort = 6;
+  public static int hornPort = 5;
+  public static int hornPort2 = 4;
 
   // Other
   public static int invertSteering = -1;  // Invert steering

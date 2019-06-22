@@ -44,6 +44,7 @@ public class Robot extends TimedRobot {
 
     // Define Pneumatics
     RobotMap.candyLift = new DoubleSolenoid(RobotMap.candyLiftUpPort, RobotMap.candyLiftDownPort);
+    RobotMap.hornSolenoid = new DoubleSolenoid(RobotMap.hornPort, RobotMap.hornPort2);
   }
 
   @Override
