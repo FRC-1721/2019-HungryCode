@@ -45,4 +45,5 @@ public class RobotMap {
 
   // Other
   public static int invertSteering = -1;  // Invert steering
+  public static int invertStrafe = 1; // Invert strafe
 }

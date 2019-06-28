@@ -28,7 +28,7 @@ public class DriveTrain extends Subsystem {
 
     starboard.set(ControlMode.PercentOutput, (-1 * thro) - (yaw * RobotMap.invertSteering));  // From the inverse of thro, subtract yaw
     port.set(ControlMode.PercentOutput, thro - (yaw * RobotMap.invertSteering));  // subtract yaw from thro
-    strafe.set(ControlMode.PercentOutput, roll);  // Set the strafe motor to the roll percentage
+    strafe.set(ControlMode.PercentOutput, (roll * RobotMap.invertStrafe));  // Set the strafe motor to the roll percentage
 
     if(verbose == true){
       SmartDashboard.putNumber("Strafe", roll);
